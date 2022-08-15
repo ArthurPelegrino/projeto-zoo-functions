@@ -24,7 +24,8 @@ function calculateEntry(param) {
   let total = 0;
   const pagantes = countEntrants(param);
   total += (pagantes.child * data.prices.child)
-  + (pagantes.adult * data.prices.adult) + (pagantes.senior * data.prices.senior);
+  + (pagantes.adult * data.prices.adult)
+  + (pagantes.senior * data.prices.senior);
   return total;
 }
 
