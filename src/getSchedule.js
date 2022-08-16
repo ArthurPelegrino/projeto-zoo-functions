@@ -25,13 +25,10 @@ const exhibition = (parametro) => {
 // Resolução 2
 
 function getSchedule(param) {
-  // teste 4, informar que está fechado quando o parametro for 'monday'
   if (param === 'Monday') {
     const obj = {};
     obj[param] = { officeHour: 'CLOSED', exhibition: 'The zoo will be closed!' }
     return obj;
-  }  if (days.find((elemento) => elemento === param)) {
-    const openning = days.find((elemento) => elemento === param).open
   }
   const animalNames = data.species.map((elemento) => elemento.name);
   if (animalNames.some((elemento) => elemento === param)) {
@@ -47,15 +44,14 @@ function getSchedule(param) {
     return objeto;
     }
     const daysOfTheWeek = Object.keys(hours);
-    const objeto = {};
-    myDay = daysOfTheWeek.find((elemento) => elemento === param);
+    const objeto = {}
+    const myDay = daysOfTheWeek.find((elemento) => elemento === param);
     objeto[myDay] = {
       officeHour: `Open from ${hours[myDay].open}am until ${hours[myDay].close}pm`,
       exhibition: exhibition(myDay)
     }
     return objeto
   }
-
 // const bringDay = (param) => {
 //   dias = Object.keys(hours)
 //   if (dias.some((elemento) => elemento === param)) {
