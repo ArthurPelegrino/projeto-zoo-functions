@@ -4,7 +4,11 @@ const data = require('../data/zoo_data');
 //  function getSchedule(scheduleTarget) {
 // }
 
-//  início de resolução um
+//  Dias da semana e animais guardados em const;
+
+const days = Object.keys(hours);
+const zooAnimals = data.species.map((elemento) => elemento.name);
+//  Função para trazer dia de cada animal
 
 const exhibition = (parametro) => {
   const animalsOfTheDay = data.species.filter((elemento) => elemento
@@ -16,35 +20,50 @@ const exhibition = (parametro) => {
   return animalsOfTheDay;
 };
 
-// const officeHour = (param) => {
-//   if (param === undefined) {
-//   const daysOfTheWeek = Object.keys(hours);
-//   let objeto = {};
-//   daysOfTheWeek.forEach((elemento) => objeto[elemento] = { officeHour: `Open from ${hours[elemento].open}am until ${hours[elemento].close}pm`, exhibition: `${exhibition(elemento)}`});
-//   objeto.map((elemento) => elemento.officeHour === 'Open from 0am untill 0am' ? objeto.officeHour = 'CLOSED' : elemento.officeHour)
-//   return objeto
-//   }
-//   }
+// console.log(teste)
 
 // Resolução 2
 
 function getSchedule(param) {
-  // teste 1 se for passado um animal, deverá retornar um array com os dias em que ele está em exibição'
+  // teste 4, informar que está fechado quando o parametro for 'monday'
+  if (param === 'Monday') {
+    const obj = {};
+    obj[param] = { officeHour: 'CLOSED', exhibition: 'The zoo will be closed!' }
+    return obj;
+  }  if (days.find((elemento) => elemento === param)) {
+    const openning = days.find((elemento) => elemento === param).open
+  }
   const animalNames = data.species.map((elemento) => elemento.name);
   if (animalNames.some((elemento) => elemento === param)) {
     return data.species.find((elemento) => elemento.name === param).availability;
   }
-  // teste 2 'sem parâmetros, retorna os horários para cada dia e quais animais estarão disponíveis'
-  if (param === undefined) {
+  if (days.every((elemento) => elemento !== param) && zooAnimals.every((elemento) => elemento !== param)) {
     const daysOfTheWeek = Object.keys(hours);
     const objeto = {};
-    daysOfTheWeek.forEach((e) => {
-      objeto[e] = { officeHour: `Open from ${hours[e].open}am until ${hours[e].close}pm`,
+    daysOfTheWeek.forEach((e) => { e === 'Monday' ? objeto[e] = { officeHour: 'CLOSED', exhibition: 'The zoo will be closed!' } :
+      objeto[e] = { officeHour:`Open from ${hours[e].open}am until ${hours[e].close}pm`,
         exhibition: exhibition(e) };
     });
+    return objeto;
+    }
+    const daysOfTheWeek = Object.keys(hours);
+    const objeto = {};
+    myDay = daysOfTheWeek.find((elemento) => elemento === param);
+    objeto[myDay] = {
+      officeHour: `Open from ${hours[myDay].open}am until ${hours[myDay].close}pm`,
+      exhibition: exhibition(myDay)
+    }
     return objeto
   }
-}
 
-console.log(getSchedule());
+// const bringDay = (param) => {
+//   dias = Object.keys(hours)
+//   if (dias.some((elemento) => elemento === param)) {
+//     dias.
+//   }
+  
+// }
+
+console.log(getSchedule('Wednesday'))
 module.exports = getSchedule;
+
