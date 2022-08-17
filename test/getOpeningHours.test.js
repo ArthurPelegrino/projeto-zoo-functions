@@ -1,14 +1,14 @@
 const getOpeningHours = require('../src/getOpeningHours');
 
 const fechado = 'The zoo is closed';
-const aberto = 'The zoo is open'
+const aberto = 'The zoo is open';
 
 describe('Testes da função HandlerElephants', () => {
   it('ao receber parametro "Monday" e "9am" ', () => {
     expect(getOpeningHours('Monday', '9:00-AM')).toMatch(fechado);
   });
   it('ao receber parametro "Tuesday" e "9am" ', () => {
-    expect(getOpeningHours('Tuesday', '9:00-AM')).toMatch('The zoo is open');
+    expect(getOpeningHours('Tuesday', '9:00-AM')).toMatch(aberto);
   });
   it('ao receber parametro "Wednesday" e "9pm" ', () => {
     expect(getOpeningHours('Wednesday', '9:00-PM')).toMatch(fechado);
