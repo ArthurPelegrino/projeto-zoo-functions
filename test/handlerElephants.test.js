@@ -22,4 +22,7 @@ describe('Testes da função HandlerElephants', () => {
   it('para o argumento avarageAge deve retornar "10.5"', () => {
     expect(handlerElephants('averageAge')).toBe(10.5);
   });
+  it('para o argumento diferente de string deve retornar "Parâmetro inválido, é necessário uma string"', () => {
+    expect(handlerElephants(!String)).toBe('Parâmetro inválido, é necessário uma string');
+  });
 });
