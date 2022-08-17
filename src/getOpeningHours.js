@@ -50,6 +50,7 @@ const openOrClosed = (period, hour, open, close) => {
   return (period === 'AM' && h >= o) || (period === 'PM' && h < c);
 };
 
+// teste
 const getOpeningHours = (day, dataHour) => {
   if (empty(day, dataHour)) return hours;
   const adjustedDay = `${day[0].toUpperCase()}${day.slice(1).toLowerCase()}`;
