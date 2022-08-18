@@ -31,6 +31,15 @@ describe('Testes da função HandlerElephants', () => {
   it('ao receber parametro "Wednesday" e "00:100PM" ', () => {
     expect(getOpeningHours('Wednesday', '00:100-PM')).toMatch('The hour must be between 0 and 12');
   });
+  it('retorna todos se não receber argumento', () => {
+    expect(getOpeningHours()).toEqual({
+      Tuesday: { open: 8, close: 6 },
+      Wednesday: { open: 8, close: 6 },
+      Thursday: { open: 10, close: 8 },
+      Friday: { open: 10, close: 8 },
+      Saturday: { open: 8, close: 10 },
+      Sunday: { open: 8, close: 8 },
+      Monday: { open: 0, close: 0 },
+    });
+  });
 });
-
-export
