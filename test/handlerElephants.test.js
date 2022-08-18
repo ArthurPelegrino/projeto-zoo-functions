@@ -11,7 +11,7 @@ describe('Testes da função HandlerElephants', () => {
     expect(handlerElephants('location')).toMatch('NW');
   });
   it('ao receber o argumento "popularity" retorna a população', () => {
-    expect(handlerElephants('popularity')).toBe(5);
+    expect(handlerElephants('popularity')).toBeClosedTo(5);
   });
   it('ao receber o argumento "availability" retorna a disponibilidade', () => {
     expect(handlerElephants('availability')).toContain('Friday', 'Saturday', 'Sunday', 'Tuesday');
@@ -20,7 +20,7 @@ describe('Testes da função HandlerElephants', () => {
     expect(handlerElephants()).toBeUndefined();
   });
   it('para o argumento avarageAge deve retornar "10.5"', () => {
-    expect(handlerElephants('averageAge')).toBe(10.5);
+    expect(handlerElephants('averageAge')).toBeCloseTo(10.5);
   });
   it('para o argumento diferente de string deve retornar "Parâmetro inválido, é necessário uma string"', () => {
     expect(handlerElephants(!String)).toMatch('Parâmetro inválido, é necessário uma string');
