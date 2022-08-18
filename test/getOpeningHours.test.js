@@ -32,3 +32,5 @@ describe('Testes da função HandlerElephants', () => {
     expect(getOpeningHours('Wednesday', '00:100-PM')).toMatch('The hour must be between 0 and 12');
   });
 });
+
+export
