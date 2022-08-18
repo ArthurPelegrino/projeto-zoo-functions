@@ -14,8 +14,8 @@ describe('Testes da função HandlerElephants', () => {
   it('ao receber o argumento "popularity" retorna a população', () => {
     expect(handlerElephants('popularity')).toBeClosedTo(5);
   });
-  it('ao receber o argumento "availability" retorna a disponibilidade', () => {
-    expect(handlerElephants('availability')).toContain('Friday', 'Saturday', 'Sunday', 'Tuesday');
+  it('ao receber o argumento "avaialability" retorna a disponibilidade', () => {
+    expect(handlerElephants('avaiability')).toContain('Friday', 'Saturday', 'Sunday', 'Tuesday');
   });
   it('caso a função não receba parametro deve retornar "undefined"', () => {
     expect(handlerElephants()).toBeUndefined();
